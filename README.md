@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ApexVision 3D Configurator
+
+An interactive 3D product configurator that runs in the browser. Users can rotate a 3D model, change its material finish, inspect parts and save a snapshot. Built with Next.js, React Three Fiber and Three.js.
+
+**Live demo:** https://apexvision-3d-configurator.vercel.app
+
+## Key Features
+
+- Real-time 3D viewer with orbit, zoom and pan controls
+- Material presets (Matte Midnight, Cyberpunk Neon, Brushed Titanium, Rose Gold Luxury) that change color, roughness and metalness
+- Product switcher to cycle between several 3D models
+- Exploded view toggle that separates model parts
+- Clickable hotspots that move the camera and show a spec popover
+- Day and space scene modes with environment lighting, stars and contact shadows
+- Snapshot button that downloads the current view as a PNG
+- Share link: the selected preset is saved in the URL (`?preset=...`) and copied to the clipboard
+- Loading screen while models load
+
+## Tech Stack
+
+- Next.js 16 (App Router)
+- React 19
+- Three.js, React Three Fiber and Drei
+- Zustand (state management)
+- Framer Motion
+- Tailwind CSS v4
+- Vercel (hosting)
+
+## Screenshots
+
+Screenshots will be added here.
+
+<!-- Add images here, for example: ![Configurator](docs/screenshots/configurator.png) -->
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 20 or later
+
+### Run
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/majidawan01/apexvision-3d-configurator.git
+cd apexvision-3d-configurator
+npm install
+npm run dev      # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Build for production:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Environment Variables
 
-## Learn More
+None.
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+app/                     Next.js entry (layout and page)
+src/components/canvas/   3D scene, model loading and hotspots
+src/components/ui/       Sidebar controls and top banner
+src/components/common/   Loading screen and spec popover
+src/store/               Zustand configurator store
+public/models/           .glb 3D models
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 3D Models
 
-## Deploy on Vercel
+The `.glb` files in `public/models` are third-party sample models. See their original sources for license and credit details.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Author
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Majid Awan** · [Portfolio](https://majid-awan-updated-portfolio-stzz.vercel.app) · [LinkedIn](https://www.linkedin.com/in/majid-awan-8210943a3) · [GitHub](https://github.com/majidawan01)
